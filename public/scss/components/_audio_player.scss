@@ -1,0 +1,110 @@
+.audio-wrapper {
+  display: none;
+  &__controls {
+    & > div {
+      min-width: 25px;
+      @include centerizeTag();
+    }
+  }
+
+  &__volumeHandler {
+    position: absolute;
+    width: 125%;
+    min-width: 31px;
+    height: 16rem;
+    background-color: $color-subtitle;
+    inset: unset;
+    bottom: 4rem;
+    @include centerizeTag();
+    visibility: hidden;
+    opacity: 0;
+    transition: all 350ms ease-in-out;
+    &-input {
+      width: 15rem;
+      transform: rotate(90deg);
+    }
+    &-output {
+      position: absolute;
+      bottom: 80%;
+      left: 115%;
+      width: 31px;
+      height: 31px;
+      background-color: $secondary;
+      color: $white;
+      font-size: $fs-4;
+      border-radius: 50%;
+      @include centerizeTag();
+    }
+  }
+  & #volume:hover #volume-handler {
+    visibility: visible;
+    opacity: 1;
+  }
+  &__progress {
+    &-input {
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+      width: 35rem;
+      direction: ltr;
+      &:focus {
+        outline: none;
+      }
+
+      &::-webkit-slider-runnable-track {
+        background-color: #c0c0c0;
+        border-radius: 0.5rem;
+        height: 1rem;
+      }
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        margin-top: 0px;
+        background-color: #007aff;
+        border-radius: 0.5rem;
+        height: 1rem;
+        width: 2.25rem;
+      }
+
+      &::-moz-range-track {
+        background-color: #c0c0c0;
+        border-radius: 0.5rem;
+        height: 1rem;
+      }
+      &::-moz-range-thumb {
+        background-color: #007aff;
+        border: none;
+        border-radius: 0.5rem;
+        height: 1rem;
+        width: 2.25rem;
+      }
+    }
+  }
+  & #player-sound-img {
+    height: 8.5rem;
+    width: 8.5rem;
+    object-fit: cover;
+  }
+}
+
+.played {
+  border: 1px solid $secondary !important;
+  background-color: $white !important;
+  color: $secondary !important;
+  &::before {
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    content: "\f04c" !important;
+  }
+}
+
+.sound-link {
+  border: none;
+  background-color: $secondary;
+  color: $white;
+  &::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f04b";
+  }
+}
